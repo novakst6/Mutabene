@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+          http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+          http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
+          http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-3.0.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+        <property name="url" value="jdbc:derby://localhost:1527/mutabene"/>
+        <property name="username" value="mutabene"/>
+        <property name="password" value="mutabene"/>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>mutabene.model.entity.User</value>
+                <value>mutabene.model.entity.Address</value>
+                <value>mutabene.model.entity.Card</value>
+                <value>mutabene.model.entity.CardCategory</value>
+                <value>mutabene.model.entity.CardComment</value>
+                <value>mutabene.model.entity.Center</value>
+                <value>mutabene.model.entity.Message</value>
+                <value>mutabene.model.entity.MessageStatus</value>
+                <value>mutabene.model.entity.Offer</value>
+                <value>mutabene.model.entity.OfferState</value>
+                <value>mutabene.model.entity.OfferType</value>
+                <value>mutabene.model.entity.Region</value>
+                <value>mutabene.model.entity.RoleIT</value>
+                <value>mutabene.model.entity.Article</value>
+                <value>mutabene.model.entity.ArticleCategory</value>
+                <value>mutabene.model.entity.ArticleComment</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+           <!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->  
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key ="hibernate.default_schema">APP</prop>
+            </props>
+        </property>
+    </bean>
+    
+    
+    
+    <context:component-scan base-package="mutabene"/>
+    <context:annotation-config/>
+
+</beans>

@@ -6,7 +6,7 @@ package mutabene.model.forms.registration;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import mutabene.model.entity.User;
+import mutabene.model.entity.UserEntity;
 import mutabene.service.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -75,7 +75,7 @@ public class RegistrationValidator implements Validator {
     }
     
     private boolean isUserNameFree(String login){
-       User user = userManager.findByLogin(login);
+       UserEntity user = userManager.findByLogin(login);
        if(user == null){
            return true;
        } else {

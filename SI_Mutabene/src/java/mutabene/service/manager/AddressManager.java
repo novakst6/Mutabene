@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Address;
+import mutabene.model.entity.AddressEntity;
 import java.util.Collection;
 import org.hibernate.annotations.OnDelete;
 import org.springframework.stereotype.Repository;
@@ -18,10 +18,10 @@ import org.springframework.stereotype.Service;
 
 
 @Service("addressManager")
-public class AddressManager extends GenericDataManager<Address> {
+public class AddressManager extends GenericDataManager<AddressEntity> {
 
     @Override
-    public boolean add(Address object) {
+    public boolean add(AddressEntity object) {
         try{
         hibTempl.save(object);
         return true;
@@ -31,32 +31,32 @@ public class AddressManager extends GenericDataManager<Address> {
     }
 
     @Override
-    public boolean update(Address object) {
+    public boolean update(AddressEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Address object) {
+    public boolean delete(AddressEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Address findById(Long id) {
+    public AddressEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Address> find(String text) {
+    public Collection<AddressEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Address> findInterval(Integer from, Integer count) {
+    public Collection<AddressEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Address> findAll() {
+    public Collection<AddressEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

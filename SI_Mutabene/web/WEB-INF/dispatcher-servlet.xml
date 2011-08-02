@@ -33,5 +33,4 @@
     
     <context:component-scan base-package="mutabene"/>
     <context:annotation-config/>
-
 </beans>

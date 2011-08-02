@@ -10,24 +10,24 @@ package mutabene.model.forms.login;
  * @author Anysek
  */
 public class LoginFormModel {
-    String userName;
-    String pass;
+    String username;
+    String password;
     String errors;
     
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String pass) {
+        this.password = pass;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getErrors() {

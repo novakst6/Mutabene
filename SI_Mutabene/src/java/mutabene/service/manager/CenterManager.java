@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Center;
+import mutabene.model.entity.CenterEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -15,41 +15,41 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("centerManager")
-public class CenterManager extends GenericDataManager<Center> {
+public class CenterManager extends GenericDataManager<CenterEntity> {
 
     @Override
-    public boolean add(Center object) {
+    public boolean add(CenterEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(Center object) {
+    public boolean update(CenterEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Center object) {
+    public boolean delete(CenterEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Center findById(Long id) {
-        return hibTempl.load(Center.class, id);
+    public CenterEntity findById(Long id) {
+        return hibTempl.load(CenterEntity.class, id);
     }
 
     @Override
-    public Collection<Center> find(String text) {
+    public Collection<CenterEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Center> findInterval(Integer from, Integer count) {
+    public Collection<CenterEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Center> findAll() {
-        return hibTempl.loadAll(Center.class);
+    public Collection<CenterEntity> findAll() {
+        return hibTempl.loadAll(CenterEntity.class);
     }
     
 }

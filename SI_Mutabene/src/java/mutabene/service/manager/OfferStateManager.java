@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.OfferState;
+import mutabene.model.entity.OfferStateEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,40 +13,40 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("offerStateManager")
-public class OfferStateManager extends GenericDataManager<OfferState> {
+public class OfferStateManager extends GenericDataManager<OfferStateEntity> {
 
     @Override
-    public boolean add(OfferState object) {
+    public boolean add(OfferStateEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(OfferState object) {
+    public boolean update(OfferStateEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(OfferState object) {
+    public boolean delete(OfferStateEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public OfferState findById(Long id) {
+    public OfferStateEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<OfferState> find(String text) {
+    public Collection<OfferStateEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<OfferState> findInterval(Integer from, Integer count) {
+    public Collection<OfferStateEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<OfferState> findAll() {
+    public Collection<OfferStateEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.User;
+import mutabene.model.entity.UserEntity;
 import java.util.Collection;
 import java.util.List;
 import javax.management.Query;
@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("userManager")
-public class UserManager extends GenericDataManager<User> {
+public class UserManager extends GenericDataManager<UserEntity> {
 
     @Override
-    public boolean add(User object) {
+    public boolean add(UserEntity object) {
         try{
         hibTempl.save(object);
         return true;
@@ -30,37 +30,37 @@ public class UserManager extends GenericDataManager<User> {
     }
 
     @Override
-    public boolean update(User object) {
+    public boolean update(UserEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(User object) {
+    public boolean delete(UserEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public User findById(Long id) {
+    public UserEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<User> find(String text) {
+    public Collection<UserEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<User> findInterval(Integer from, Integer count) {
+    public Collection<UserEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<User> findAll() {
-        return hibTempl.find("From User");
+    public Collection<UserEntity> findAll() {
+        return hibTempl.loadAll(UserEntity.class);
     }
     
-    public User findByLogin(String login){
-        List<User> users = hibTempl.find("from User as user where user.login like ? ", login);
+    public UserEntity findByLogin(String login){
+        List<UserEntity> users = hibTempl.find("from UserEntity as user where user.login like ? ", login);
         if(users.isEmpty()){
             return null;
         }

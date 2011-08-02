@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.ArticleComment;
+import mutabene.model.entity.ArticleCommentEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,40 +13,40 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("articleCommentManager")
-public class ArticleCommentManager extends GenericDataManager<ArticleComment> {
+public class ArticleCommentManager extends GenericDataManager<ArticleCommentEntity> {
 
     @Override
-    public boolean add(ArticleComment object) {
+    public boolean add(ArticleCommentEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(ArticleComment object) {
+    public boolean update(ArticleCommentEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(ArticleComment object) {
+    public boolean delete(ArticleCommentEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ArticleComment findById(Long id) {
+    public ArticleCommentEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<ArticleComment> find(String text) {
+    public Collection<ArticleCommentEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<ArticleComment> findInterval(Integer from, Integer count) {
+    public Collection<ArticleCommentEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<ArticleComment> findAll() {
+    public Collection<ArticleCommentEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

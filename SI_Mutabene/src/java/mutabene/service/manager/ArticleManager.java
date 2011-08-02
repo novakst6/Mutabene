@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Article;
+import mutabene.model.entity.ArticleEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,40 +13,40 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("articleManager")
-public class ArticleManager extends GenericDataManager<Article> {
+public class ArticleManager extends GenericDataManager<ArticleEntity> {
 
     @Override
-    public boolean add(Article object) {
+    public boolean add(ArticleEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(Article object) {
+    public boolean update(ArticleEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Article object) {
+    public boolean delete(ArticleEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Article findById(Long id) {
+    public ArticleEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Article> find(String text) {
+    public Collection<ArticleEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Article> findInterval(Integer from, Integer count) {
+    public Collection<ArticleEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Article> findAll() {
+    public Collection<ArticleEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

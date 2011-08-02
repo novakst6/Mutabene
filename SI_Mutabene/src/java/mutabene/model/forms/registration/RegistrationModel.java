@@ -6,11 +6,11 @@ package mutabene.model.forms.registration;
 
 
 
-import mutabene.model.entity.Center;
-import mutabene.model.entity.RoleIT;
-import mutabene.model.entity.User;
-import mutabene.model.entity.Address;
-import mutabene.model.entity.Region;
+import mutabene.model.entity.CenterEntity;
+import mutabene.model.entity.RoleITEntity;
+import mutabene.model.entity.UserEntity;
+import mutabene.model.entity.AddressEntity;
+import mutabene.model.entity.RegionEntity;
 
 
 /**
@@ -19,11 +19,11 @@ import mutabene.model.entity.Region;
  */
 public class RegistrationModel {
     
-    private User user;
-    private Address address;
-    private Region region;
-    private Center center;
-    private RoleIT role;   
+    private UserEntity user;
+    private AddressEntity address;
+    private RegionEntity region;
+    private CenterEntity center;
+    private RoleITEntity role;   
     
     private String confirmPassword;
     private String centerId;
@@ -33,27 +33,27 @@ public class RegistrationModel {
     private String errors;
     
     public RegistrationModel() {
-    user = new User();
-    address = new Address();
-    region = new Region();
-    center = new Center();
-    role = new RoleIT();
+    user = new UserEntity();
+    address = new AddressEntity();
+    region = new RegionEntity();
+    center = new CenterEntity();
+    role = new RoleITEntity();
     }
 
  
-    public Address getAddress() {
+    public AddressEntity getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(AddressEntity address) {
         this.address = address;
     }
 
-    public Center getCenter() {
+    public CenterEntity getCenter() {
         return center;
     }
 
-    public void setCenter(Center center) {
+    public void setCenter(CenterEntity center) {
         this.center = center;
     }
 
@@ -81,19 +81,19 @@ public class RegistrationModel {
         this.gender = gender;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
-    public Region getRegion() {
+    public RegionEntity getRegion() {
         return region;
     }
 
-    public void setRegion(Region region) {
+    public void setRegion(RegionEntity region) {
         this.region = region;
     }
 
@@ -105,11 +105,11 @@ public class RegistrationModel {
         this.regionId = regionId;
     }
 
-    public RoleIT getRole() {
+    public RoleITEntity getRole() {
         return role;
     }
 
-    public void setRole(RoleIT role) {
+    public void setRole(RoleITEntity role) {
         this.role = role;
     }
 

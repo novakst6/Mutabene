@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Message;
+import mutabene.model.entity.MessageEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,40 +13,40 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("messageManager")
-public class MessageManager extends GenericDataManager<Message> {
+public class MessageManager extends GenericDataManager<MessageEntity> {
 
     @Override
-    public boolean add(Message object) {
+    public boolean add(MessageEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(Message object) {
+    public boolean update(MessageEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Message object) {
+    public boolean delete(MessageEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Message findById(Long id) {
+    public MessageEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Message> find(String text) {
+    public Collection<MessageEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Message> findInterval(Integer from, Integer count) {
+    public Collection<MessageEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Message> findAll() {
+    public Collection<MessageEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

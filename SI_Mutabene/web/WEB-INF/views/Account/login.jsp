@@ -11,28 +11,29 @@
 <%@page session="true"%>
 <h2>Přihlášení</h2>
     <p>Vyplněním následujícího formuláře se přihlásíte na MUTABENE stránky.</p>
-    <form:form action="submitLogin.htm" commandName="loginFormModel" method="post">
+    <form action="j_spring_security_check" method="post">
         <div>
             <fieldset>
                 <legend>Přihlašovací formulář</legend>
-                <form:errors path="errors" cssClass="error" />
+                  <c:if test="${not empty param.error}">
+                            <div class="error" >Uživatelské jméno nebo heslo je nesprávné !</div>
+                  </c:if>
                     <div class="editor-label">
+
                     Uživatelské jméno:
                     </div>
                    <div class="editor-field">
-                        <form:input path="userName" />
-                        <form:errors path="userName" cssClass="error"/>
+                       <input type="text" name="j_username" id="j_username" />                   
                    </div>
                     <div class="editor-label">
                     Heslo:
                     </div>
                     <div class="editor-field">
-                        <form:password path="pass" />
-                        <form:errors path="pass" cssClass="error"/>
+                        <input type="password" name="j_password" id="j_password" />
                     </div>
                     <p><input type="submit" /></p>
             </fieldset>
         </div>
         
-    </form:form>
+    </form>
 <%@include file="../../parts/footer.jspf"%>

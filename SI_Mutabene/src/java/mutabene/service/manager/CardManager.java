@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Card;
+import mutabene.model.entity.CardEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,41 +13,41 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("cardManager")
-public class CardManager extends GenericDataManager<Card> {
+public class CardManager extends GenericDataManager<CardEntity> {
 
     @Override
-    public boolean add(Card object) {
+    public boolean add(CardEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(Card object) {
+    public boolean update(CardEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Card object) {
+    public boolean delete(CardEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Card findById(Long id) {
+    public CardEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Card> find(String text) {
+    public Collection<CardEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Card> findInterval(Integer from, Integer count) {
+    public Collection<CardEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Card> findAll() {
-        return hibTempl.loadAll(Card.class);
+    public Collection<CardEntity> findAll() {
+        return hibTempl.loadAll(CardEntity.class);
     }
     
 }

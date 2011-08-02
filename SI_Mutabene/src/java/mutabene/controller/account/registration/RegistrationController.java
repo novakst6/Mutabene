@@ -5,15 +5,17 @@
 package mutabene.controller.account.registration;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import mutabene.model.entity.Address;
-import mutabene.model.entity.Center;
-import mutabene.model.entity.Gender;
-import mutabene.model.entity.Region;
-import mutabene.model.entity.RoleIT;
-import mutabene.model.entity.User;
+import mutabene.model.entity.AddressEntity;
+import mutabene.model.entity.CenterEntity;
+import mutabene.model.entity.GenderEntity;
+import mutabene.model.entity.RegionEntity;
+import mutabene.model.entity.RoleITEntity;
+import mutabene.model.entity.UserEntity;
 import mutabene.model.forms.registration.RegistrationModel;
 import mutabene.model.forms.registration.RegistrationValidator;
 import mutabene.service.manager.AddressManager;
@@ -48,9 +50,9 @@ public class RegistrationController {
     
     @ModelAttribute(value="centersList")
     public Map<String,String> centers(){
-       Collection<Center> centers = centerManager.findAll();
+       Collection<CenterEntity> centers = centerManager.findAll();
        Map<String,String> centersList = new LinkedHashMap<String, String>();
-       for(Center c: centers){
+       for(CenterEntity c: centers){
            centersList.put(c.getId().toString(), c.getName());
        }
        return centersList;
@@ -58,12 +60,12 @@ public class RegistrationController {
     
     @ModelAttribute(value="regionsList")
     public Map<String,String> addRegions(){
-       Collection<Region> regions = regionManager.findAll();
+       Collection<RegionEntity> regions = regionManager.findAll();
        Map<String,String> regionsList = new LinkedHashMap<String, String>();       
-       for(Region r: regions){
+       for(RegionEntity r: regions){
             if(r.getId() == r.getRegion().getId()){
                 regionsList.put(r.getId().toString(), r.getName());
-                for(Region r2: regions){
+                for(RegionEntity r2: regions){
                     if(r.getId() == r2.getRegion().getId() && r2.getRegion().getId() != r2.getId()){
                       regionsList.put(r2.getId().toString(), "   - "+r2.getName()+" -");
                     }
@@ -86,26 +88,28 @@ public class RegistrationController {
         if(result.hasErrors()){                
             return "Account/registration";
         }
-        Address address = regModel.getAddress();
-        User user = regModel.getUser();
-        Center center = centerManager.findById(Long.parseLong(regModel.getCenterId()));
-        Region region = regionManager.findById(Long.parseLong(regModel.getRegionId()));
+        AddressEntity address = regModel.getAddress();
+        UserEntity user = regModel.getUser();
+        CenterEntity center = centerManager.findById(Long.parseLong(regModel.getCenterId()));
+        RegionEntity region = regionManager.findById(Long.parseLong(regModel.getRegionId()));
         address.setRegion(region);
         addressManager.add(address);
         user.setAddress(address);
         user.setCenter(center);
         user.setLogin(user.getLogin().toLowerCase());
         if("MALE".equals(regModel.getGender())){
-            user.setGender(Gender.MALE);
+            user.setGender(GenderEntity.MALE);
         } else {
-            user.setGender(Gender.FEMALE);
+            user.setGender(GenderEntity.FEMALE);
         }
-        Collection<RoleIT> roles = roleItManager.findAll();
-        for(RoleIT role: roles){
-            if(role.getName().equals("USER")){
-                user.setRoleIT(role);
-            }
-        }
+        RoleITEntity role = roleItManager.findById((long)1);
+       
+
+                HashSet<RoleITEntity> userRoles = new HashSet<RoleITEntity>();
+                userRoles.add(role);
+                user.setRoleIT(userRoles);
+
+      
         userManager.add(user);
         System.out.println("FINISH");
         return "Home/index";

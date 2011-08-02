@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.RoleIT;
+import mutabene.model.entity.RoleITEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Service;
 
@@ -13,41 +13,41 @@ import org.springframework.stereotype.Service;
  * @author stenlik
  */
 @Service("roleITManager")
-public class RoleITManager extends GenericDataManager<RoleIT> {
+public class RoleITManager extends GenericDataManager<RoleITEntity> {
 
     @Override
-    public boolean add(RoleIT object) {
+    public boolean add(RoleITEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(RoleIT object) {
+    public boolean update(RoleITEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(RoleIT object) {
+    public boolean delete(RoleITEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RoleIT findById(Long id) {
+    public RoleITEntity findById(Long id) {
+        return hibTempl.load(RoleITEntity.class, id);
+    }
+
+    @Override
+    public Collection<RoleITEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<RoleIT> find(String text) {
+    public Collection<RoleITEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<RoleIT> findInterval(Integer from, Integer count) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Collection<RoleIT> findAll() {
-        return hibTempl.loadAll(RoleIT.class);
+    public Collection<RoleITEntity> findAll() {
+        return hibTempl.loadAll(RoleITEntity.class);
     }
     
 }

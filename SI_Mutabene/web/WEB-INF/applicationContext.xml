@@ -11,6 +11,7 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:security="http://www.springframework.org/schema/security"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
@@ -22,6 +23,7 @@
           http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-3.0.xsd
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+          http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 ">
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -35,22 +37,22 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-                <value>mutabene.model.entity.User</value>
-                <value>mutabene.model.entity.Address</value>
-                <value>mutabene.model.entity.Card</value>
-                <value>mutabene.model.entity.CardCategory</value>
-                <value>mutabene.model.entity.CardComment</value>
-                <value>mutabene.model.entity.Center</value>
-                <value>mutabene.model.entity.Message</value>
-                <value>mutabene.model.entity.MessageStatus</value>
-                <value>mutabene.model.entity.Offer</value>
-                <value>mutabene.model.entity.OfferState</value>
-                <value>mutabene.model.entity.OfferType</value>
-                <value>mutabene.model.entity.Region</value>
-                <value>mutabene.model.entity.RoleIT</value>
-                <value>mutabene.model.entity.Article</value>
-                <value>mutabene.model.entity.ArticleCategory</value>
-                <value>mutabene.model.entity.ArticleComment</value>
+                <value>mutabene.model.entity.UserEntity</value>
+                <value>mutabene.model.entity.AddressEntity</value>
+                <value>mutabene.model.entity.CardEntity</value>
+                <value>mutabene.model.entity.CardCategoryEntity</value>
+                <value>mutabene.model.entity.CardCommentEntity</value>
+                <value>mutabene.model.entity.CenterEntity</value>
+                <value>mutabene.model.entity.MessageEntity</value>
+                <value>mutabene.model.entity.MessageStatusEntity</value>
+                <value>mutabene.model.entity.OfferEntity</value>
+                <value>mutabene.model.entity.OfferStateEntity</value>
+                <value>mutabene.model.entity.OfferTypeEntity</value>
+                <value>mutabene.model.entity.RegionEntity</value>
+                <value>mutabene.model.entity.RoleITEntity</value>
+                <value>mutabene.model.entity.ArticleEntity</value>
+                <value>mutabene.model.entity.ArticleCategoryEntity</value>
+                <value>mutabene.model.entity.ArticleCommentEntity</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -58,7 +60,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
            <!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->  
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                
                 <prop key ="hibernate.default_schema">APP</prop>
             </props>
         </property>
@@ -66,7 +68,31 @@
     
     
     
+    
     <context:component-scan base-package="mutabene"/>
     <context:annotation-config/>
+
+<security:http auto-config="true">
+    <security:form-login login-page="/login.htm" authentication-failure-url="/login.htm?error=true"/>
+    <security:logout logout-url="/logout.htm" logout-success-url="/index.htm"/>
+</security:http>
+<!--    
+    <bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="userDetailsService" ref="userDetailsService"/>
+    </bean>
+ --> 
+ <!--   <bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+        <property name="providers">
+            <list>
+                <ref local="daoAuthenticationProvider" />
+            </list>
+        </property>
+    </bean>
+-->
+<security:authentication-manager>
+    <security:authentication-provider user-service-ref="userDetailsService">
+       <!-- <security:password-encoder hash="md5"/> -->
+    </security:authentication-provider>
+</security:authentication-manager>
 
 </beans>

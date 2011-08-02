@@ -4,7 +4,7 @@
  */
 package mutabene.service.manager;
 
-import mutabene.model.entity.Region;
+import mutabene.model.entity.RegionEntity;
 import java.util.Collection;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -15,41 +15,41 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("regionManager")
-public class RegionManager extends GenericDataManager<Region> {
+public class RegionManager extends GenericDataManager<RegionEntity> {
 
     @Override
-    public boolean add(Region object) {
+    public boolean add(RegionEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean update(Region object) {
+    public boolean update(RegionEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean delete(Region object) {
+    public boolean delete(RegionEntity object) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Region findById(Long id) {
-        return hibTempl.load(Region.class, id);
+    public RegionEntity findById(Long id) {
+        return hibTempl.load(RegionEntity.class, id);
     }
 
     @Override
-    public Collection<Region> find(String text) {
+    public Collection<RegionEntity> find(String text) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Region> findInterval(Integer from, Integer count) {
+    public Collection<RegionEntity> findInterval(Integer from, Integer count) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Region> findAll() {
-       return hibTempl.loadAll(Region.class);
+    public Collection<RegionEntity> findAll() {
+       return hibTempl.loadAll(RegionEntity.class);
     }
     
 }
